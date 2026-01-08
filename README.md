@@ -225,7 +225,7 @@ The model has been deployed to **Hugging Face Spaces** using **Gradio**:
 - API returns predictions displayed in the web interface  
 
 <p align="center">
-  <img src="/screenshots/render_webpage.png.png" width="750" height="400" alt="Gradio App Screenshot"/>
+  <img src="/screenshots/render_webpage.png" width="750" height="400" alt="Gradio App Screenshot"/>
 </p>
 
 
@@ -242,25 +242,26 @@ The model has been deployed to **Hugging Face Spaces** using **Gradio**:
 
 ---
 
-## Project Structure
 
-Multi-Label-Topic-Classification-of-News-Articles/
-│
-├── data/                     # Raw & processed datasets
-├── dataloaders/              # Data loaders & preprocessing artifacts
-├── labeling/                 # Label encoding & mappings
-├── models/                   # (Ignored) trained models
-├── notebooks/                # Experiments & analysis notebooks
-├── pipeline/                 # Training & inference pipelines
-├── scraper/                  # News scraping utilities
-├── website_deployment/       # Web / API deployment code
-├── huggingface_deployment/   # HF-compatible inference setup
-│
-├── config.py                 # Central configuration
-├── requirements.txt          # Dependencies
-├── test.py                   # Inference testing
-├── README.md                 # Project documentation
-└── .gitignore                # Git ignore rules
+### 📌 Directory & File Overview
+
+- **data/** – Contains all raw and processed datasets used for model training and evaluation.  
+- **dataloaders/** – Includes custom data loaders, tokenizers, and preprocessing artifacts for model input.  
+- **labeling/** – Manages multi-label category encoding and mappings to maintain consistency.  
+- **models/** – Trained model artifacts (ignored in Git; download externally due to large size).  
+- **notebooks/** – Jupyter notebooks for experimentation, model evaluation, and analysis.  
+- **pipeline/** – Scripts for training, validation, and inference pipelines.  
+- **scraper/** – Utilities for scraping news articles from sources like BBC and The Guardian.  
+- **website_deployment/** – Frontend and backend code for deploying the model as an interactive web application.  
+- **huggingface_deployment/** – Hugging Face-compatible deployment setup, including BLURR and ONNX inference.  
+
+**Key Files:**
+
+- **config.py** – Central configuration for paths, hyperparameters, and model settings.  
+- **requirements.txt** – Python dependencies required to run the project.  
+- **test.py** – Quick inference scripts for testing model predictions.  
+- **README.md** – Project documentation.  
+- **.gitignore** – Specifies files and directories ignored by Git (e.g., large model files).  
 
 
 ## Installation & Setup
@@ -272,21 +273,9 @@ git clone https://github.com/mdfaisalahmed025/Multi-Label-Topic-Classification-o
 cd Multi-Label-Topic-Classification-of-News-Articles-
 
 
-
 # 📞 Contact / Author
 
 **Project Maintainer:** Md Faisal Ahmed  
 **Portfolio:** [mdfaisalahmed.online](https://mdfaisalahmed.online/)  
 **GitHub:** [@mdfaisalahmed025](https://github.com/mdfaisalahmed025)  
-
-
-
-
-
-
-
-
-
-
-
 
