@@ -24,3 +24,9 @@ data/
 .vscode/
 .idea/
 
+# Trained models
+models/
+*.pkl
+*.onnx
+*.onnx.data
+
