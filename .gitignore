@@ -30,3 +30,13 @@ models/
 *.onnx
 *.onnx.data
 
+# Large trained models
+models/
+huggingface_deployment/
+*.onnx
+*.onnx.data
+
+# Allow small preprocessing objects
+!dataloaders/*.pkl
+
+
