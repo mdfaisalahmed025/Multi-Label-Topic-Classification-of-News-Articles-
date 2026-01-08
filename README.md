@@ -135,6 +135,85 @@ This **cleaned and processed dataset** is ready for:
 
 
 
+## Training & Model Evaluation
+
+### 🛠️ Model Training
+
+- **Base Model:** `distilroberta-base` transformer encoder  
+- **Task:** Multi-label topic classification of news articles  
+- **Training Strategy:** Two-stage training with custom data loader  
+- **Epochs:** 5 cycles per stage  
+- **Accuracy:** Achieved **91% validation accuracy**, demonstrating strong generalization across multiple news topics  
+- **Frameworks & Libraries:** PyTorch, Hugging Face Transformers, BLURR  
+
+**Training Workflow:**
+
+1. **Stage 1:** Initial training on full dataset to learn general topic distributions.  
+2. **Stage 2:** Fine-tuning on preprocessed and cleaned dataset for higher accuracy and label balance.  
+3. **BLURR Inference:** Used BLURR for accelerated inference pipelines, ensuring batch-efficient processing.  
+4. **ONNX Conversion:** Exported the trained model to **ONNX** for CPU-optimized inference and deployment.  
+5. **Quantization Attempt:** Model quantization failed due to shape inconsistencies; inference continues with full precision ONNX models.
+
+---
+
+
+
+### 📊 Model Benchmarking
+
+| Model Stage        | Base Architecture     | Validation Accuracy | Epochs | Remarks                                  |
+|------------------- |-------------------- |------------------ |------- |---------------------------------------- |
+| **Stage 1**        | distilroberta-base  | 90%              | 10     | Initial training on raw preprocessed data |
+| **Stage 2**        | distilroberta-base  | **91%**           | 10     | Fine-tuned for label balance and noise reduction |
+
+✅ **Conclusion:**  
+- Two-stage training with DistilRoBERTa achieved high performance with 91% validation accuracy.  
+- BLURR inference ensures efficient prediction on batches of articles.  
+- ONNX export provides deployment-ready models, though quantization was not feasible due to shape inconsistencies.
+
+---
+
+### 🔍 Evaluation & Metrics
+
+- **Metric:** Multi-label F1-score, Precision, and Recall were used to assess model performance across all topic labels  
+- **Confusion Analysis:** Observed model accurately predicts multiple overlapping topics such as *Politics + Economy* or *Technology + Science*  
+- **Label-wise Performance:** Best performance on high-frequency labels (Politics, Economy), slightly lower recall on niche categories (Climate & Environment, Society)  
+
+<p align="center">
+  <img src="/screenshots/learning rate.png" width="650" height="450" alt="Multi-Label Confusion Matrix"/>
+</p>
+
+✅ **Interpretation:**  
+- Diagonal blocks indicate correct multi-label predictions.  
+- Off-diagonal misclassifications show overlapping topic predictions where articles belong to multiple categories.  
+- Overall, the model demonstrates strong predictive power for multi-label classification tasks.
+
+---
+
+### ⚡ Deployment & Inference
+
+- **BLURR Inference Pipelines:** Fast batch predictions with tokenized inputs  
+- **ONNX Models:** Optimized for CPU inference; ready for API integration  
+- **Quantization Limitation:** Unable to quantize due to shape mismatch; models still perform efficiently in full precision  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ---
