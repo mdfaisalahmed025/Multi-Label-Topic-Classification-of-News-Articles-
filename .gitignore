@@ -31,7 +31,6 @@ models/
 
 # Large trained models
 models/
-huggingface_deployment/
 *.onnx
 *.onnx.data
 
